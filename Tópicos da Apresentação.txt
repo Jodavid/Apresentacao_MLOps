@@ -1,0 +1,7 @@
+1 - MLOps: O que é e Por quê?
+2 - Caractetísticas Chave do MLOps
+3 - Desenvolvimento de Modelos
+4 - Preparação para Produção
+5 - Monitoramento e Manutenção
+6 - Governança e Compliance - Key Elements of Responsible AI
+7 - Ferramentas e Tecnologias
