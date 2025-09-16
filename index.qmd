@@ -118,6 +118,81 @@ editor:
 
 ---
 
+## {auto-animate=true}
+
+### MLOps: O que é e Por quê?
+<h4>O Ciclo de Vida de ML: Simples vs. Realista</h4>
+
+<hr/>
+
+
+Atualmente no mercado de trabalho, nomenclaturas estão surgindo para diferenciar as áreas que trabalham com dados.
+As mais frequentes atualmente são:
+
+
+<br/>
+
+* Engenheiro de dados;
+
+<p/>
+
+* Analista de dados;
+
+<p/>
+
+* Cientista de Dados;
+
+<p/>
+
+::: {style="margin-top: 1px;"}
+* Engenheiro de Machine Learning;
+:::
+
+<p/>
+* Prompt engineering;
+
+
+---
+
+## {auto-animate=true}
+
+### MLOps: O que é e Por quê?
+<h4>O Ciclo de Vida de ML: Simples vs. Realista</h4>
+
+<hr/>
+
+
+Atualmente no mercado de trabalho, nomenclaturas estão surgindo para diferenciar as áreas que trabalham com dados.
+As mais frequentes atualmente são:
+
+
+<br/>
+
+* Engenheiro de dados;
+
+<p/>
+
+* Analista de dados;
+
+<p/>
+
+* Cientista de Dados;
+
+<p/>
+
+::: {style="margin-top: 1px; font-size: 2em; color: red;"}
+- **Engenheiro de Machine Learning;**
+:::
+
+
+
+<p/>
+* Prompt engineering;
+
+
+
+---
+
 ## MLOps: O que é e Por quê?
 <h4>O Ciclo de Vida de ML: Simples vs. Realista</h4>
 
