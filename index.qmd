@@ -1029,6 +1029,38 @@ jobs:
 
 -------
 
+<br/>
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<h3 style="font-size:30pt">Contato:</h3>
+<p/>
+
+
+**e-mail**: <jodavid.ferreira@ufpe.br>
+
+**Site Pessoal**: <https://jodavid.github.io/>
+
+**Lattes**: [http://lattes.cnpq.br/4617170601890026](http://lattes.cnpq.br/4617170601890026)
+
+**LinkedIn**: [jodavidferreira](https://www.linkedin.com/in/jodavidferreira/)
+
+:::
+
+::: {.column width="40%"}
+
+![](images/castlab.png){.relative fig-align="center" width="200"}
+
+<div style="text-align:center; margin-top:-30px">
+Computational Agriculture Statistics Laboratory - UFPE
+</div>
+
+:::
+::::
+
+
 <br/> <br/>
 
 <hr/>
@@ -1044,17 +1076,3 @@ OBRIGADO!
 ::: {style="text-align: center"}
 Slide produzido com [quarto](https://quarto.org/)
 :::
-
-<br/> <br/> <br/>
-
-<h3>Contato:</h3>
-<p/>
-
-**Lattes**: [http://lattes.cnpq.br/4617170601890026](http://lattes.cnpq.br/4617170601890026)
-
-**LinkedIn**: [jodavidferreira](https://www.linkedin.com/in/jodavidferreira/)
-
-**Site Pessoal**: <https://jodavid.github.io/>
-
-**e-mail**: <jodavid.ferreira@ufpe.br>
-
