@@ -107,7 +107,7 @@ editor:
 <hr/>
 <br/>
 
-1. **Modelos em Laboratório vs. Realidade:** Um modelo que funciona bem em um notebook com dados estáticos pode falhar em um ambiente de produção com dados dinâmicos.
+1. **Modelos em Testes vs. Realidade:** Um modelo que funciona bem em um notebook com dados estáticos pode falhar em um ambiente de produção com dados dinâmicos.
 2. **Complexidade Oculta:** O código de ML é apenas uma pequena parte de um sistema de ML real.
 
 . . . 
@@ -264,7 +264,7 @@ uma união de filosofia, práticas e ferramentas para aumentar a velocidade e a 
 
 <p>
 
--   **Performance do modelo em queda (Concept Drift):** A relação entre as variáveis de entrada e saída pode mudar com o tempo.
+-   **Performance do modelo em queda (Concept Drift):** A relação entre as variáveis de entrada e a variável de saída pode mudar com o tempo.
 
 <p>
 
@@ -361,7 +361,7 @@ graph TD
 
 <p>
 
--   **Engenharia de Features:** Criação de variáveis preditivas.
+-   **Engenharia de Features:** Criação de novas variáveis a partir das existentes.
 
 <p>
 
@@ -389,7 +389,7 @@ graph TD
 -   **Estratégias de Implantação:**
     -   **Batch Scoring:** Processamento em lote (ex: rodar uma vez por dia).
     -   **Real-Time Scoring:** Predições em tempo real através de uma API.
-    -   **Blue-Green, Canary Releases:** Estratégias para implantar novas versões com segurança.
+    -   **Canary Releases:** Estratégias para implantar novas versões com segurança.
 
 ----
 
@@ -481,7 +481,7 @@ graph TD
 
 <br>
 
-![](https://www.tidymodels.org/images/tidymodels.png){fig-align="center"}
+![](images/tidymodels.png){fig-align="center"}
 
 
 ----
@@ -507,21 +507,21 @@ graph TD
 <hr/>
 
 ```r
+meus_dados <- iris
+
 # 1. Dividir os dados
 set.seed(123)
 data_split <- initial_split(meus_dados, prop = 0.8)
-train_data <- training(data_split)
-test_data  <- testing(data_split)
+train_data <- training(data_split); test_data  <- testing(data_split)
 
 # 2. Criar a receita de pré-processamento
-minha_receita <- recipe(target ~ ., data = train_data) |>
+minha_receita <- recipe(Species ~ ., data = train_data) |>
   step_impute_median(all_numeric_predictors()) |>
   step_normalize(all_predictors())
 
 # 3. Especificar o modelo
 rf_model <- rand_forest(trees = 100) |>
-  set_engine("ranger") |>
-  set_mode("classification")
+  set_engine("ranger") |> set_mode("classification")
 
 # 4. Criar o workflow
 meu_workflow <- workflow() |>
@@ -650,8 +650,8 @@ board <- board_folder("model_versions")
 vetiver_pin_write(board, v)
 
 # 3. Crie uma API plumber a partir do objeto vetiver
-pr() %>%
-  vetiver_api(v) %>%
+pr() |> 
+  vetiver_api(v) |> 
   pr_run()
 ```
 
@@ -710,14 +710,14 @@ Isso cria um ambiente isolado e 100% reprodutível para o nosso modelo.
 <hr/>
 <br/>
 
--   **Data Drift (Mudança nos Dados):** A distribuição dos dados de entrada muda.
+-   **Data Drift (Mudança nos Dados):** A distribuição dos dados de entrada muda com o tempo.
     -   *Exemplo:* Um modelo de crédito treinado antes de uma crise econômica receberá perfis de clientes muito diferentes durante a crise.
 
 . . .
 
 <p/>
 
--   **Concept Drift (Mudança no Conceito):** A relação entre as features e o alvo muda.
+-   **Concept Drift (Mudança no Conceito):** A relação entre as features e a variável resposta muda.
     -   *Exemplo:* Em um modelo de churn, as razões pelas quais os clientes cancelam um serviço podem mudar devido a um novo concorrente no mercado.
 
 . . .
@@ -735,7 +735,7 @@ Isso cria um ambiente isolado e 100% reprodutível para o nosso modelo.
 <br/>
 
 **1. Logging:**
-Cada predição feita pela sua API deve ser registrada. O que logar?
+Cada predição feita pela sua API deve ser registrada. O que registrar?
 
 -   **Timestamp:** Quando a predição foi feita.
 -   **ID do Modelo:** Qual versão do modelo foi usada.
@@ -760,7 +760,7 @@ Use ferramentas como **`Shiny`** ou R Markdown para criar dashboards que visuali
 ::: {.column width="50%"}
 **Métricas de Performance do Modelo**
 
-(Requerem Ground Truth)
+(Requerem valores verdadeiros)
 
 -   Acurácia
 -   AUC
@@ -771,7 +771,7 @@ Use ferramentas como **`Shiny`** ou R Markdown para criar dashboards que visuali
 ::: {.column width="50%"}
 **Métricas de Drift de Dados**
 
-(Não requerem Ground Truth)
+(Não requerem valores verdadeiros)
 
 -   Distribuição das variáveis (histogramas, boxplots).
 -   Estatísticas descritivas (média, mediana, desvio padrão).

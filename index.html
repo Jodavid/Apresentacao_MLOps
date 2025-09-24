@@ -286,7 +286,7 @@ O Desafio: Da Experimentação à Produção
 <hr>
 <p><br></p>
 <ol type="1">
-<li><strong>Modelos em Laboratório vs.&nbsp;Realidade:</strong> Um modelo que funciona bem em um notebook com dados estáticos pode falhar em um ambiente de produção com dados dinâmicos.</li>
+<li><strong>Modelos em Testes vs.&nbsp;Realidade:</strong> Um modelo que funciona bem em um notebook com dados estáticos pode falhar em um ambiente de produção com dados dinâmicos.</li>
 <li><strong>Complexidade Oculta:</strong> O código de ML é apenas uma pequena parte de um sistema de ML real.</li>
 </ol>
 <div class="fragment">
@@ -438,7 +438,7 @@ O que é MLOps?
 </ul>
 <p>
 </p><ul>
-<li><strong>Performance do modelo em queda (Concept Drift):</strong> A relação entre as variáveis de entrada e saída pode mudar com o tempo.</li>
+<li><strong>Performance do modelo em queda (Concept Drift):</strong> A relação entre as variáveis de entrada e a variável de saída pode mudar com o tempo.</li>
 </ul>
 <p>
 </p><ul>
@@ -527,7 +527,7 @@ graph TD
 </ul>
 <p>
 </p><ul>
-<li><strong>Engenharia de Features:</strong> Criação de variáveis preditivas.</li>
+<li><strong>Engenharia de Features:</strong> Criação de novas variáveis a partir das existentes.</li>
 </ul>
 <p>
 </p><ul>
@@ -556,7 +556,7 @@ graph TD
 <ul>
 <li><strong>Batch Scoring:</strong> Processamento em lote (ex: rodar uma vez por dia).</li>
 <li><strong>Real-Time Scoring:</strong> Predições em tempo real através de uma API.</li>
-<li><strong>Blue-Green, Canary Releases:</strong> Estratégias para implantar novas versões com segurança.</li>
+<li><strong>Canary Releases:</strong> Estratégias para implantar novas versões com segurança.</li>
 </ul></li>
 </ul>
 </section>
@@ -647,7 +647,7 @@ O Ecossistema <code>tidymodels</code>
 </ul>
 <p><br></p>
 
-<img data-src="https://www.tidymodels.org/images/tidymodels.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<img data-src="images/tidymodels.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="desenvolvimento-de-modelos-com-r-1" class="slide level2">
 <h2>Desenvolvimento de Modelos com R</h2>
 <h4>
@@ -670,21 +670,21 @@ Estrutura do <code>tidymodels</code> para MLOps
 Exemplo: Um Workflow Reprodutível
 </h4>
 <hr>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># 1. Dividir os dados</span></span>
-<span id="cb1-2"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb1-3"><a href=""></a>data_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(meus_dados, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
-<span id="cb1-4"><a href=""></a>train_data <span class="ot">&lt;-</span> <span class="fu">training</span>(data_split)</span>
-<span id="cb1-5"><a href=""></a>test_data  <span class="ot">&lt;-</span> <span class="fu">testing</span>(data_split)</span>
-<span id="cb1-6"><a href=""></a></span>
-<span id="cb1-7"><a href=""></a><span class="co"># 2. Criar a receita de pré-processamento</span></span>
-<span id="cb1-8"><a href=""></a>minha_receita <span class="ot">&lt;-</span> <span class="fu">recipe</span>(target <span class="sc">~</span> ., <span class="at">data =</span> train_data) <span class="sc">|&gt;</span></span>
-<span id="cb1-9"><a href=""></a>  <span class="fu">step_impute_median</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href=""></a>  <span class="fu">step_normalize</span>(<span class="fu">all_predictors</span>())</span>
-<span id="cb1-11"><a href=""></a></span>
-<span id="cb1-12"><a href=""></a><span class="co"># 3. Especificar o modelo</span></span>
-<span id="cb1-13"><a href=""></a>rf_model <span class="ot">&lt;-</span> <span class="fu">rand_forest</span>(<span class="at">trees =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a href=""></a>  <span class="fu">set_engine</span>(<span class="st">"ranger"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-15"><a href=""></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>meus_dados <span class="ot">&lt;-</span> iris</span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a><span class="co"># 1. Dividir os dados</span></span>
+<span id="cb1-4"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-5"><a href=""></a>data_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(meus_dados, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
+<span id="cb1-6"><a href=""></a>train_data <span class="ot">&lt;-</span> <span class="fu">training</span>(data_split); test_data  <span class="ot">&lt;-</span> <span class="fu">testing</span>(data_split)</span>
+<span id="cb1-7"><a href=""></a></span>
+<span id="cb1-8"><a href=""></a><span class="co"># 2. Criar a receita de pré-processamento</span></span>
+<span id="cb1-9"><a href=""></a>minha_receita <span class="ot">&lt;-</span> <span class="fu">recipe</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> train_data) <span class="sc">|&gt;</span></span>
+<span id="cb1-10"><a href=""></a>  <span class="fu">step_impute_median</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb1-11"><a href=""></a>  <span class="fu">step_normalize</span>(<span class="fu">all_predictors</span>())</span>
+<span id="cb1-12"><a href=""></a></span>
+<span id="cb1-13"><a href=""></a><span class="co"># 3. Especificar o modelo</span></span>
+<span id="cb1-14"><a href=""></a>rf_model <span class="ot">&lt;-</span> <span class="fu">rand_forest</span>(<span class="at">trees =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-15"><a href=""></a>  <span class="fu">set_engine</span>(<span class="st">"ranger"</span>) <span class="sc">|&gt;</span> <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span>
 <span id="cb1-16"><a href=""></a></span>
 <span id="cb1-17"><a href=""></a><span class="co"># 4. Criar o workflow</span></span>
 <span id="cb1-18"><a href=""></a>meu_workflow <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
@@ -791,8 +791,8 @@ De um Objeto R para um Artefato de Produção
 <span id="cb4-9"><a href=""></a><span class="fu">vetiver_pin_write</span>(board, v)</span>
 <span id="cb4-10"><a href=""></a></span>
 <span id="cb4-11"><a href=""></a><span class="co"># 3. Crie uma API plumber a partir do objeto vetiver</span></span>
-<span id="cb4-12"><a href=""></a><span class="fu">pr</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb4-13"><a href=""></a>  <span class="fu">vetiver_api</span>(v) <span class="sc">%&gt;%</span></span>
+<span id="cb4-12"><a href=""></a><span class="fu">pr</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb4-13"><a href=""></a>  <span class="fu">vetiver_api</span>(v) <span class="sc">|&gt;</span> </span>
 <span id="cb4-14"><a href=""></a>  <span class="fu">pr_run</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -843,7 +843,7 @@ Por que os Modelos Degradam?
 <hr>
 <p><br></p>
 <ul>
-<li><strong>Data Drift (Mudança nos Dados):</strong> A distribuição dos dados de entrada muda.
+<li><strong>Data Drift (Mudança nos Dados):</strong> A distribuição dos dados de entrada muda com o tempo.
 <ul>
 <li><em>Exemplo:</em> Um modelo de crédito treinado antes de uma crise econômica receberá perfis de clientes muito diferentes durante a crise.</li>
 </ul></li>
@@ -851,7 +851,7 @@ Por que os Modelos Degradam?
 <div class="fragment">
 <p>
 </p><ul>
-<li><strong>Concept Drift (Mudança no Conceito):</strong> A relação entre as features e o alvo muda.
+<li><strong>Concept Drift (Mudança no Conceito):</strong> A relação entre as features e a variável resposta muda.
 <ul>
 <li><em>Exemplo:</em> Em um modelo de churn, as razões pelas quais os clientes cancelam um serviço podem mudar devido a um novo concorrente no mercado.</li>
 </ul></li>
@@ -871,7 +871,7 @@ Estratégias de Monitoramento
 </h4>
 <hr>
 <p><br></p>
-<p><strong>1. Logging:</strong> Cada predição feita pela sua API deve ser registrada. O que logar?</p>
+<p><strong>1. Logging:</strong> Cada predição feita pela sua API deve ser registrada. O que registrar?</p>
 <ul>
 <li><strong>Timestamp:</strong> Quando a predição foi feita.</li>
 <li><strong>ID do Modelo:</strong> Qual versão do modelo foi usada.</li>
@@ -892,7 +892,7 @@ Métricas de Monitoramento
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><strong>Métricas de Performance do Modelo</strong></p>
-<p>(Requerem Ground Truth)</p>
+<p>(Requerem valores verdadeiros)</p>
 <ul>
 <li>Acurácia</li>
 <li>AUC</li>
@@ -902,7 +902,7 @@ Métricas de Monitoramento
 </ul>
 </div><div class="column" style="width:50%;">
 <p><strong>Métricas de Drift de Dados</strong></p>
-<p>(Não requerem Ground Truth)</p>
+<p>(Não requerem valores verdadeiros)</p>
 <ul>
 <li>Distribuição das variáveis (histogramas, boxplots).</li>
 <li>Estatísticas descritivas (média, mediana, desvio padrão).</li>
