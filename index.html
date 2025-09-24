@@ -209,50 +209,7 @@ Prof.&nbsp;Dr.&nbsp;Jodavid Ferreira
 </div>
 
 </section>
-<section id="estrutura-da-apresentação" class="slide level2">
-<h2>Estrutura da Apresentação</h2>
-<hr>
-<p><br></p>
-<ol type="1">
-<li><strong>MLOps: O que é e Por quê?</strong></li>
-</ol>
-<p>
-</p><ol start="2" type="1">
-<li><strong>Características Chave do MLOps</strong></li>
-</ol>
-<p>
-</p><ol start="3" type="1">
-<li><strong>Desenvolvimento de Modelos com R</strong></li>
-</ol>
-<p>
-</p><ol start="4" type="1">
-<li><strong>Preparação para Produção</strong></li>
-</ol>
-<p>
-</p><ol start="5" type="1">
-<li><strong>Monitoramento e Manutenção</strong></li>
-</ol>
-<p>
-</p><ol start="6" type="1">
-<li><strong>Governança e Responsabilidade</strong></li>
-</ol>
-<p>
-</p><ol start="7" type="1">
-<li><strong>Ferramentas e Tecnologias em R</strong></li>
-</ol>
-</section>
 <section id="section" class="slide level2">
-<h2></h2>
-<div style="margin-top:-40px; text-align: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/fluxo_dados.png" class="relative" style="width:87.0%"></p>
-<figcaption>Imagem adaptada do Livro Doing Data Science, de Schutt &amp; O’Neil (2013).</figcaption>
-</figure>
-</div>
-</div>
-</section>
-<section id="section-1" class="slide level2">
 <h2></h2>
 <div style="margin-top:-40px; text-align: center;">
 <p><img data-src="images/1706219923427.gif" class="relative" style="width:53.0%"></p>
@@ -266,7 +223,7 @@ O Desafio: Da Experimentação à Produção
 <hr>
 <p><br></p>
 <blockquote>
-<p>“Mais da metade dos modelos Aprendizagem de Máquina criados pelas organizações hoje nunca chegam à produção.” - <em>Introducing MLOps</em></p>
+<p>“Mais da metade (50%) dos modelos Aprendizagem de Máquina criados pelas organizações hoje nunca chegam à produção.” - <em>Introducing MLOps</em></p>
 </blockquote>
 <p><br> <br></p>
 <div class="fragment">
@@ -286,7 +243,7 @@ O Desafio: Da Experimentação à Produção
 <hr>
 <p><br></p>
 <ol type="1">
-<li><strong>Modelos em Testes vs.&nbsp;Realidade:</strong> Um modelo que funciona bem em um notebook com dados estáticos pode falhar em um ambiente de produção com dados dinâmicos.</li>
+<li><strong>Modelos em Teste vs.&nbsp;Realidade:</strong> Um modelo que funciona bem em um “notebook’’ com dados estáticos pode falhar em um ambiente de produção com dados dinâmicos.</li>
 <li><strong>Complexidade Oculta:</strong> O código de ML é apenas uma pequena parte de um sistema de ML real.</li>
 </ol>
 <div class="fragment">
@@ -300,7 +257,7 @@ Fonte: “Hidden Technical Debt in Machine Learning Systems”, Google (2015)
 </p>
 </div>
 </section>
-<section id="section-2" class="slide level2" data-auto-animate="true">
+<section id="section-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <h3 id="mlops-o-que-é-e-por-quê-2">MLOps: O que é e Por quê?</h3>
 <h4>
@@ -331,7 +288,7 @@ O Ciclo de Vida de ML: Simples vs.&nbsp;Realista
 <li>Prompt engineering;</li>
 </ul>
 </section>
-<section id="section-3" class="slide level2" data-auto-animate="true">
+<section id="section-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <h3 id="mlops-o-que-é-e-por-quê-3">MLOps: O que é e Por quê?</h3>
 <h4>
@@ -357,8 +314,8 @@ O Ciclo de Vida de ML: Simples vs.&nbsp;Realista
 <li><strong>Engenheiro de Machine Learning;</strong></li>
 </ul>
 </div>
-<p>
-</p><ul>
+<!-- <p/> -->
+<ul>
 <li>Prompt engineering;</li>
 </ul>
 </section>
@@ -455,8 +412,8 @@ O que é MLOps?
 Por que MLOps é Essencial?
 </h4>
 <hr>
-<p><br></p>
-<ul>
+<p>
+</p><ul>
 <li><strong>Reduzir Riscos:</strong> Garante que os modelos em produção se comportem como esperado, evitando prejuízos financeiros ou de reputação.</li>
 </ul>
 <p>
@@ -482,8 +439,8 @@ Por que MLOps é Essencial?
 Os 5 Pilares do MLOps
 </h4>
 <hr>
-<p><br></p>
-<p>O ciclo de vida de MLOps pode ser dividido em cinco componentes principais, que formam um ciclo contínuo.</p>
+<p>
+</p><p>O ciclo de vida de MLOps pode ser dividido em cinco componentes principais, que formam um ciclo contínuo.</p>
 <div style="text-align: center; margin-top: -10px;">
 <p><img src="images/path1460.png" width="40%"></p>
 </div>
@@ -677,7 +634,7 @@ Exemplo: Um Workflow Reprodutível
 <span id="cb1-5"><a href=""></a>data_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(meus_dados, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
 <span id="cb1-6"><a href=""></a>train_data <span class="ot">&lt;-</span> <span class="fu">training</span>(data_split); test_data  <span class="ot">&lt;-</span> <span class="fu">testing</span>(data_split)</span>
 <span id="cb1-7"><a href=""></a></span>
-<span id="cb1-8"><a href=""></a><span class="co"># 2. Criar a receita de pré-processamento</span></span>
+<span id="cb1-8"><a href=""></a><span class="co"># 2. Criar pré-processamento</span></span>
 <span id="cb1-9"><a href=""></a>minha_receita <span class="ot">&lt;-</span> <span class="fu">recipe</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> train_data) <span class="sc">|&gt;</span></span>
 <span id="cb1-10"><a href=""></a>  <span class="fu">step_impute_median</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span></span>
 <span id="cb1-11"><a href=""></a>  <span class="fu">step_normalize</span>(<span class="fu">all_predictors</span>())</span>
@@ -1142,7 +1099,7 @@ Exemplo de Workflow no GitHub Actions
 </ul>
 </div>
 </section>
-<section id="section-4" class="slide level2" data-background-image="images/ppgest_ufpe.png" data-background-opacity="1" data-background-size="contain">
+<section id="section-3" class="slide level2" data-background-image="images/ppgest_ufpe.png" data-background-opacity="1" data-background-size="contain">
 <h2></h2>
 </section>
 <section id="referências" class="slide level2">

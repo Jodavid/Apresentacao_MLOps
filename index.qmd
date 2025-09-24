@@ -25,49 +25,6 @@ editor:
 ---
 
 
-## Estrutura da Apresentação
-
-<hr/>
-<br/>
-
-
-1.  **MLOps: O que é e Por quê?**
-
-<p>
-
-2.  **Características Chave do MLOps**
-
-<p>
-
-3.  **Desenvolvimento de Modelos com R**
-
-<p>
-
-4.  **Preparação para Produção**
-
-<p>
-
-5.  **Monitoramento e Manutenção**
-
-<p>
-
-6.  **Governança e Responsabilidade**
-
-<p>
-
-7.  **Ferramentas e Tecnologias em R**
-
----
-
-
-##
-
-<div style="margin-top:-40px; text-align: center;">
-![Imagem adaptada do Livro Doing Data Science, de Schutt & O’Neil (2013).](images/fluxo_dados.png){.relative width="87%"}
-</div>
-
-
----
 
 ##  
 
@@ -85,7 +42,7 @@ editor:
 <hr/>
 <br/>
 
-> "Mais da metade dos modelos Aprendizagem de Máquina criados pelas organizações hoje nunca chegam à produção." - *Introducing MLOps*
+> "Mais da metade (50%) dos modelos Aprendizagem de Máquina criados pelas organizações hoje nunca chegam à produção." - *Introducing MLOps*
 
 
 <br/>
@@ -107,7 +64,7 @@ editor:
 <hr/>
 <br/>
 
-1. **Modelos em Testes vs. Realidade:** Um modelo que funciona bem em um notebook com dados estáticos pode falhar em um ambiente de produção com dados dinâmicos.
+1. **Modelos em Teste vs. Realidade:** Um modelo que funciona bem em um "notebook'' com dados estáticos pode falhar em um ambiente de produção com dados dinâmicos.
 2. **Complexidade Oculta:** O código de ML é apenas uma pequena parte de um sistema de ML real.
 
 . . . 
@@ -184,9 +141,7 @@ As mais frequentes atualmente são:
 - **Engenheiro de Machine Learning;**
 :::
 
-
-
-<p/>
+<!-- <p/> -->
 * Prompt engineering;
 
 
@@ -281,7 +236,7 @@ uma união de filosofia, práticas e ferramentas para aumentar a velocidade e a 
 <h4>Por que MLOps é Essencial?</h4>
 
 <hr/>
-<br/>
+<p/>
 
 -   **Reduzir Riscos:** Garante que os modelos em produção se comportem como esperado, evitando prejuízos financeiros ou de reputação.
 
@@ -308,7 +263,7 @@ uma união de filosofia, práticas e ferramentas para aumentar a velocidade e a 
 <h4>Os 5 Pilares do MLOps</h4>
 
 <hr/>
-<br/>
+<p/>
 
 
 O ciclo de vida de MLOps pode ser dividido em cinco componentes principais, que formam um ciclo contínuo.
@@ -514,7 +469,7 @@ set.seed(123)
 data_split <- initial_split(meus_dados, prop = 0.8)
 train_data <- training(data_split); test_data  <- testing(data_split)
 
-# 2. Criar a receita de pré-processamento
+# 2. Criar pré-processamento
 minha_receita <- recipe(Species ~ ., data = train_data) |>
   step_impute_median(all_numeric_predictors()) |>
   step_normalize(all_predictors())
